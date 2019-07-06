@@ -17,7 +17,11 @@ class Counters extends Component {
   };
 
   handleReset = () => {
-
+    const counters = this.state.counters.map(c => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters });
   };
 
 
