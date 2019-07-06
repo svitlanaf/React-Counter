@@ -35,6 +35,14 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  handleDecrement = counter => {
+    const counters = [...this.state.counters]; //cloning counters array
+    const index = counters.indexOf(counter); // getting counter id
+    counters[index] = {...counter};
+    counters[index].value--; // incrementing counter value
+    this.setState({ counters });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -44,6 +52,7 @@ class App extends Component {
         counters={this.state.counters}
         onDelete={this.handleDelete}
         onIncrement={this.handleIncrement}
+        onDecrement={this.handleDecrement}
         onReset={this.handleReset}
         />
       </main>
